@@ -1,20 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     background: linear-gradient(7.13deg, #1D1D1F 30.02%, #404058 99.46%);
-    font-family: "Poppins";
 }
 
-.white-border  {
-    color: #000;
-    text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px -1px 0 #FFF, 0px 1px 0 #FFF,  0 0 #FFF, -1px 0 0 #FFF, 1px 0 0 #FFF;
+.wrapper-icon > a > #top-icon {
+    width: 200px;
 }
 
-.eagis-top{
-    z-index: 1000;
+.wrapper-list > #header-list {
+    margin: 0 20%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.eagis-circle {
-    margin-top: -100px;
-    z-index: 0;
+.wrapper-list > #header-list > li > a {
+    color: #ebebeb;
+}
+
+.wrapper-list > #header-list > li:hover{
+    color: #ebebeb;
 }
