@@ -1,23 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import EagisLogo from '../assets/images/eagis-logo.png'
+import EagisLogo from '../../assets/images/eagis-logo.png'
+import './style.css'
 
 interface Item {
     label: string
+    delay: number
     active?: boolean
 }
 
-// const Logo = styled.img`
-//     display: block;
-//     margin: 0 auto;
-//     width: 130px;
-//     position: relative;
-//     left: 15px;
-// `
-
 const Logo = styled.div`
-    display: block;
     margin: 0 auto;
+    margin-top: 10px;
+
+    display: block;
     width: 140px;
     height: 40px;
 
@@ -25,6 +21,9 @@ const Logo = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+
+    animation: fadein-logo 800ms ease 400ms forwards;
+    opacity: 0;
 `
 
 const Wrapper = styled.div`
@@ -41,6 +40,9 @@ const HeaderItem = styled.div`
     font-weight: ${props => props.active ? 600: 200};
     font-size: 18px;
     width: 110px;
+
+    animation: fadein-item 800ms ease ${props => props.delay * 230}ms forwards;
+    opacity: 0;
     cursor: pointer;
 `
 
@@ -50,11 +52,11 @@ const Container = styled.div`
 `
 
 const items: Item[] = [
-    { label: 'company' },
-    { label: 'member' },
-    { label: 'about', active: true},
-    { label: 'twitter' },
-    { label: 'discord' }
+    { delay: 3, label: 'company' },
+    { delay: 2, label: 'member' },
+    { delay: 1, label: 'about', active: true},
+    { delay: 2, label: 'twitter' },
+    { delay: 3, label: 'discord' }
 ]
 
 export default () => (
@@ -63,9 +65,10 @@ export default () => (
             <Logo src={EagisLogo} />
 
             <Wrapper>
-                {items.map(({ label, active }: Item, key) => (
+                {items.map(({ delay, label, active }: Item, key) => (
                     <HeaderItem
                         key={key}
+                        delay={delay}
                         active={active}
                     >
                         {label}
