@@ -21,3 +21,11 @@ Snowpack combines multiple resources and files into a single static `/build` fol
 ```console
 yarn build
 ```
+
+## :rocket: deploy
+
+Deploy the generated site to `https://eag.is` by running it after build.
+
+```console
+yarn deploy
+```
