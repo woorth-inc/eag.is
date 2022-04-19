@@ -4,9 +4,12 @@
         "module": "ESNext",
         "moduleResolution": "node",
         "jsx": "preserve",
+        "baseUrl": ".",
         "noEmit": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
+        "strictNullChecks": true,
+        "allowSyntheticDefaultImports": true,
         "typeRoots": [
             "node_modules/@types",
             "types"

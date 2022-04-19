@@ -1,6 +1,10 @@
 export default {
   mount: {
-    src: '/dist/',
-    public: '/',
-  }
+    public: { url: '/', static: true },
+    src: '/dist',
+  },
+  plugins: [
+    '@snowpack/plugin-typescript',
+    '@snowpack/plugin-react-refresh',
+  ],
 }
