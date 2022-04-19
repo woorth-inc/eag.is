@@ -24,7 +24,7 @@ yarn build
 
 ## :rocket: deploy
 
-Deploy the generated site to `https://eag.is` by running it after build.
+Deploy the generated site to `https://eag.is` by running it after execute `yarn build` as automatic.
 
 ```console
 yarn deploy
