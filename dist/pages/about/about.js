@@ -1,21 +1,15 @@
-import React from "../../../_snowpack/pkg/react.js";
-import styled from "../../../_snowpack/pkg/styled-components.js";
-import Card from "../../components/card/card.js";
-import "./style.css.proxy.js";
-const CardWrapper = styled.div`
+import n from"../../../_snowpack/pkg/react.js";import a from"../../../_snowpack/pkg/styled-components.js";import i from"../../components/card/card.js";import"./style.css.proxy.js";const o=a.div`
     position: relative;
     margin: 0 auto;
     width: 500px;
-`;
-const StyledCard = styled(Card)`
+`,r=a(i)`
     display: inline-block;
 
     position: absolute;
     left: 50%;
 
-    z-index: ${(props) => 3 - props.id};
-`;
-const TitleWrapper = styled.div`
+    z-index: ${t=>3-t.id};
+`,p=a.div`
     width: 1200px;
     margin: 0 auto;
 
@@ -32,26 +26,16 @@ const TitleWrapper = styled.div`
         margin: -40px 0;
     }
 
-    ${[
-  {
-    id: 1,
-    style: `
+    ${[{id:1,style:`
                 height: 100px;
                 margin-top: 55px;
                 background: linear-gradient(black 0, rgba(255,255,255,0) 100px);
-            `
-  },
-  {
-    id: 3,
-    style: `
+            `},{id:3,style:`
                 height: 200px;
                 margin-top: 60px;
                 background: linear-gradient(rgba(255,255,255,0) 0, black 100px);
-            `
-  }
-].map(({id, style}) => {
-  return `
-            p:nth-of-type(${id}):before {
+            `}].map(({id:t,style:e})=>`
+            p:nth-of-type(${t}):before {
                 content: '';
                 position: absolute;
                 left: 0;
@@ -59,23 +43,8 @@ const TitleWrapper = styled.div`
                 width: 100%;
                 z-index: 1;
 
-                ${style}
+                ${e}
             }
-        `;
-}).join("\n")}
-`;
-export default () => /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(TitleWrapper, null, ["Easy to get", "Aegis with", "Eagis"].map((text, key) => /* @__PURE__ */ React.createElement("p", {
-  key,
-  style: {
-    opacity: "0",
-    animation: `fadein 800ms ease ${900 + key * 120}ms forwards`
-  }
-}, text))), /* @__PURE__ */ React.createElement(CardWrapper, null, ["safe", "unsafe", "unknown"].map((state, key) => /* @__PURE__ */ React.createElement(StyledCard, {
-  type: "NFT",
-  name: "VeryLongAnimals",
-  icon: "https://lh3.googleusercontent.com/fIn8q46M8M9RnmMOz3Kf1sAKlJRUw3nFAt6xX25Bxtw62BAhrN0CyVTKZz8BQ3O4-C6sLaD2vlTU_sYHL7737-YaK2uKZwjvuikQhg=s0",
-  state,
-  detail: "Super Long Animal",
-  id: key,
-  key
-}))));
+        `).join(`
+`)}
+`;export default()=>n.createElement(n.Fragment,null,n.createElement(p,null,["Easy to get","Aegis with","Eagis"].map((t,e)=>n.createElement("p",{key:e,style:{opacity:"0",animation:`fadein 800ms ease ${900+e*120}ms forwards`}},t))),n.createElement(o,null,["safe","unsafe","unknown"].map((t,e)=>n.createElement(r,{type:"NFT",name:"VeryLongAnimals",icon:"https://lh3.googleusercontent.com/fIn8q46M8M9RnmMOz3Kf1sAKlJRUw3nFAt6xX25Bxtw62BAhrN0CyVTKZz8BQ3O4-C6sLaD2vlTU_sYHL7737-YaK2uKZwjvuikQhg=s0",state:t,detail:"Super Long Animal",id:e,key:e}))));

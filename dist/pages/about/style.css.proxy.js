@@ -1,10 +1,10 @@
-// [snowpack] add styles to the page (skip if no document exists)
-if (typeof document !== 'undefined') {
-  const code = "@keyframes fadein {\r\n    from {\r\n        opacity: 0;\r\n        transform: translateY(-70px);\r\n    }\r\n    to {\r\n        opacity: 1;\r\n        transform: translateY(0);\r\n    }\r\n}";
-
-  const styleEl = document.createElement("style");
-  const codeEl = document.createTextNode(code);
-  styleEl.type = 'text/css';
-  styleEl.appendChild(codeEl);
-  document.head.appendChild(styleEl);
-}
+if(typeof document!="undefined"){const n=`@keyframes fadein {\r
+    from {\r
+        opacity: 0;\r
+        transform: translateY(-70px);\r
+    }\r
+    to {\r
+        opacity: 1;\r
+        transform: translateY(0);\r
+    }\r
+}`,e=document.createElement("style"),t=document.createTextNode(n);e.type="text/css",e.appendChild(t),document.head.appendChild(e)}
