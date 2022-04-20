@@ -6,6 +6,7 @@
     to {
         opacity: 1;
         transform: translateY(0);
+        pointer-events: all;
     }
 }
 
@@ -17,5 +18,32 @@
     to {
         opacity: 1;
         margin-left: 0;
+        pointer-events: all;
+    }
+}
+
+/* reverse */
+
+@keyframes fadeout-title {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-70px);
+        pointer-events: none;
+    }
+}
+
+@keyframes fadeout-card {
+    from {
+        opacity: 1;
+        margin-left: 0;
+    }
+    to {
+        opacity: 0;
+        margin-left: 160px;
+        pointer-events: none;
     }
 }

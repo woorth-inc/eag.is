@@ -5,11 +5,11 @@ import Button from '../../components/button/button'
 import type { State } from '../../components/card/card'
 import './style.css'
 
-const CardWrapper = styled.div`
-    height: 198px;
-    position: relative;
-    bottom: 50px;
-`
+interface Props {
+    animation: string
+    firstRender: boolean
+    onWheel: (_: any) => any
+}
 
 const StyledCard = styled(Card)`
     position: absolute;
@@ -17,8 +17,19 @@ const StyledCard = styled(Card)`
     left: calc(50% + ${({ id }) => ['-300px', '0px', '300px'][id]});
     z-index: ${({ id }) => 3 - id};
 
-    opacity: 0;
-    animation: fadein-card 800ms ease ${({ id }) => 900 + id * 120}ms forwards;
+    opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
+    animation: ${({ animation }) => `${animation}-card`} 800ms ease ${({ id, animation, firstRender }) => (firstRender ? 900 : 30)  + (animation === 'fadein' ? id * 120 : (2 - id) * 120)}ms forwards;
+`
+
+const CardWrapper = styled.div`
+    height: 198px;
+    position: relative;
+    bottom: 50px;
+`
+
+const Title = styled.p`
+    opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
+    animation: ${({ animation }) => `${animation}-title`} 800ms ease ${({ id, animation, firstRender }) => (firstRender ? 900 : 30) + (animation === 'fadein' ? id * 120 : (2 - id) * 120)}ms forwards;
 `
 
 const TitleWrapper = styled.div`
@@ -74,42 +85,47 @@ const StyledButton = styled(Button)`
     margin: 40px auto;
 `
 
-export default () => {
+export default ({
+    animation,
+    firstRender,
+    onWheel,
+}: Props) => {
     const handleButtonClick = () => {
         window.open('https://docs.eag.is/');
     }
 
     return (
-        <>
+        <div onWheel={onWheel}>
             <TitleWrapper>
-                {['Easy to get', 'Aegis with', 'Eagis'].map((text: string, key: number) => (
-                    <p
-                        key={key}
-                        style={{
-                            opacity: '0',
-                            animation: `fadein-title 800ms ease ${900 + key * 120}ms forwards`,
-                        }}
+                {['Easy to get', 'Aegis with', 'Eagis'].map((text: string, id: number) => (
+                    <Title
+                        animation={animation}
+                        firstRender={firstRender}
+                        id={id}
+                        key={id}
                     >
                         {text}
-                    </p>
+                    </Title>
                 ))}
             </TitleWrapper>
 
             <CardWrapper>
-                {['safe', 'unsafe', 'unknown'].map((state: State, key: number) => (
+                {['safe', 'unsafe', 'unknown'].map((state: State, id: number) => (
                     <StyledCard
                         type={'NFT'}
                         name={'Collection Name'}
                         icon={'https://lh3.googleusercontent.com/fIn8q46M8M9RnmMOz3Kf1sAKlJRUw3nFAt6xX25Bxtw62BAhrN0CyVTKZz8BQ3O4-C6sLaD2vlTU_sYHL7737-YaK2uKZwjvuikQhg=s0'}
                         state={state}
                         detail={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '}
-                        id={key}
-                        key={key}
+                        animation={animation}
+                        firstRender={firstRender}
+                        id={id}
+                        key={id}
                     />
                 ))}
             </CardWrapper>
 
             <StyledButton action={handleButtonClick}>Docs</StyledButton>
-        </>
+        </div>
     )
 }
