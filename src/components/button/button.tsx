@@ -22,6 +22,12 @@ const ButtonWrapper = styled.div`
     display: block;
     width: 100px;
     cursor: pointer;
+    transition: 600ms;
+
+    &:hover {
+        background: white;
+        color: black;
+    }
 `
 
 export default ({
