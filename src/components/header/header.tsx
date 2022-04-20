@@ -10,12 +10,11 @@ interface Item {
 }
 
 const Logo = styled.div`
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 25px auto 10px;
 
     display: block;
-    width: 140px;
-    height: 40px;
+    width: 175px;
+    height: 50px;
 
     background-image: url(${props => props.src});
     background-size: contain;

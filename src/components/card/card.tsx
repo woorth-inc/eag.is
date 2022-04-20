@@ -22,7 +22,7 @@ const Container = styled.div`
     border-radius: 10px;
     border: solid 4px ${props => colors[props.state]};
     background: #141414;
-    width: 380px;
+    width: 387px;
 `
 
 const Wrapper = styled.div`
