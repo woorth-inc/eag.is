@@ -1,10 +1,9 @@
 import a from"../../../_snowpack/pkg/react.js";import t from"../../../_snowpack/pkg/styled-components.js";import n from"../../assets/images/eagis-logo.png.proxy.js";import"./style.css.proxy.js";const s=t.div`
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 25px auto 10px;
 
     display: block;
-    width: 140px;
-    height: 40px;
+    width: 175px;
+    height: 50px;
 
     background-image: url(${e=>e.src});
     background-size: contain;

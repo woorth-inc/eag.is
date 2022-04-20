@@ -2,7 +2,7 @@ import e from"../../../_snowpack/pkg/react.js";import t from"../../../_snowpack/
     border-radius: 10px;
     border: solid 4px ${n=>p[n.state]};
     background: #141414;
-    width: 380px;
+    width: 387px;
 `,s=t.div`
     color: white;
     font-family: 'Poppins', sans-serif;
