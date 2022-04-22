@@ -58,9 +58,8 @@ const Container = styled.div`
 export default ({
     items,
 }: Props) => {
-    const [activeId, setActiveId] = useState(
-        items.findIndex(({ active }) => active)
-    )
+    const [activeId, setActiveId] = useState(items.findIndex(({ active }) => active))
+    const [cooldown, setCooldown] = useState(performance.now())
 
     return (
         <Container>
@@ -73,8 +72,10 @@ export default ({
                         delay={delay}
                         active={id === activeId}
                         onClick={() => {
+                            if (performance.now() - cooldown < 1000) return
                             onClick()
                             setActiveId(id)
+                            setCooldown(performance.now())
                         }}
                     >
                         {label}
