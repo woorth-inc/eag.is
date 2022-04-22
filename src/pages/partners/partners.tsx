@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import Microsoft from '../../assets/images/partners-logo/microsoft.png'
+import MicrosoftAzure from '../../assets/images/partners-logo/microsoft_azure.png'
+import VeryLongAnimals from '../../assets/images/partners-logo/verylonganimals.png'
+
 import './style.css'
 
 interface Props {
@@ -7,8 +12,10 @@ interface Props {
     firstRender: boolean
 }
 
-const DummyContainer = styled.div`
+const PartnersaContainer = styled.div`
     font-size: 24px;
+    text-align: center;
+
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -18,15 +25,30 @@ const DummyContainer = styled.div`
     ${({ animation, firstRender }) => firstRender ? '' : `animation: ${animation}-company 800ms ease 50ms forwards;`}
 `
 
+const BannerWrapper = styled.div`
+    grid-gap: 20px;
+`
+
+const Banner = styled.img`
+    height: 40px;
+    margin: 10px 20px;
+`
+
 export default ({
     animation,
     firstRender,
 }: Props) => (
-    <DummyContainer
+    <PartnersaContainer
         animation={animation}
         firstRender={firstRender}
     >
-        <p>partneres</p>
-        <p>(=^・・^=)</p>
-    </DummyContainer>
+        <BannerWrapper>
+            {[Microsoft, MicrosoftAzure, VeryLongAnimals].map((src, id) => (
+                <Banner
+                    src={src}
+                    key={id}
+                />
+            ))}
+        </BannerWrapper>
+    </PartnersaContainer>
 )
