@@ -8,7 +8,6 @@ import './style.css'
 interface Props {
     animation: string
     firstRender: boolean
-    onWheel: (_: any) => any
 }
 
 const StyledCard = styled(Card)`
@@ -83,19 +82,20 @@ const TitleWrapper = styled.div`
 
 const StyledButton = styled(Button)`
     margin: 40px auto;
+    opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
+    animation: ${({ animation }) => `${animation}-button`} 800ms ease ${({ firstRender }) => firstRender ? 600 : 50}ms forwards;
 `
 
 export default ({
     animation,
     firstRender,
-    onWheel,
 }: Props) => {
     const handleButtonClick = () => {
         window.open('https://docs.eag.is/');
     }
 
     return (
-        <div onWheel={onWheel}>
+        <div>
             <TitleWrapper>
                 {['Easy to get', 'Aegis with', 'Eagis'].map((text: string, id: number) => (
                     <Title
@@ -125,7 +125,13 @@ export default ({
                 ))}
             </CardWrapper>
 
-            <StyledButton action={handleButtonClick}>Docs</StyledButton>
+            <StyledButton
+                action={handleButtonClick}
+                animation={animation}
+                firstRender={firstRender}
+            >
+                Docs
+            </StyledButton>
         </div>
     )
 }

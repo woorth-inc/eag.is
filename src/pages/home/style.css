@@ -22,6 +22,18 @@
     }
 }
 
+@keyframes fadein-button {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+}
+
 /* reverse */
 
 @keyframes fadeout-title {
@@ -45,5 +57,17 @@
         opacity: 0;
         margin-left: 160px;
         pointer-events: none;
+    }
+}
+
+@keyframes fadeout-button {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(70px);
     }
 }
