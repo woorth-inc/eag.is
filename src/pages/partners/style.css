@@ -1,0 +1,19 @@
+@keyframes fadein-company {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@keyframes fadeout-company {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
