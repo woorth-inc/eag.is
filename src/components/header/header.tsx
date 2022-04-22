@@ -3,10 +3,15 @@ import styled from 'styled-components'
 import EagisLogo from '../../assets/images/eagis-logo.png'
 import './style.css'
 
-interface Item {
+export interface Item {
     label: string
     delay: number
     active?: boolean
+    onClick?: any
+}
+
+interface Props {
+    items: Item[]
 }
 
 const Logo = styled.div`
@@ -27,7 +32,7 @@ const Logo = styled.div`
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(${({ items }) => items || 5}, 1fr);
     grid-column-gap: 30px;
 
     margin: 0 auto;
@@ -50,30 +55,23 @@ const Container = styled.div`
     grid-template-rows: repeat(2, 1fr);
 `
 
-const items: Item[] = [
-    { delay: 3, label: 'company' },
-    { delay: 2, label: 'member' },
-    { delay: 1, label: 'about', active: true},
-    { delay: 2, label: 'twitter' },
-    { delay: 3, label: 'discord' }
-]
+export default ({
+    items,
+}: Props) => (
+    <Container>
+        <Logo src={EagisLogo} />
 
-export default () => (
-    <>
-        <Container>
-            <Logo src={EagisLogo} />
-
-            <Wrapper>
-                {items.map(({ delay, label, active }: Item, key) => (
-                    <HeaderItem
-                        key={key}
-                        delay={delay}
-                        active={active}
-                    >
-                        {label}
-                    </HeaderItem>
-                ))}
-            </Wrapper>
-        </Container>
-    </>
+        <Wrapper items={items.length}>
+            {items.map(({ delay, label, active, onClick }: Item, key) => (
+                <HeaderItem
+                    key={key}
+                    delay={delay}
+                    active={active}
+                    onClick={onClick}
+                >
+                    {label}
+                </HeaderItem>
+            ))}
+        </Wrapper>
+    </Container>
 )

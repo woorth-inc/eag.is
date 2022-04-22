@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import './style.css'
 
 interface Props {
     animation: string
-    onWheel: (_: void) => void
 }
 
 const DummyContainer = styled.div`
@@ -13,18 +13,14 @@ const DummyContainer = styled.div`
     left: 50%;
     top: 50%;
 
-    opacity: ${({ animation }) => animation === 'fadein' ? 1 : 0};
+    opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
     animation: ${({ animation }) => `${animation}-dummy`} 800ms ease 50ms forwards;
 `
 
 export default ({
     animation,
-    onWheel,
 }: Props) => (
-    <DummyContainer
-        animation={animation}
-        onWheel={onWheel}
-    >
+    <DummyContainer animation={animation}>
         (=^・・^=)
     </DummyContainer>
 )
