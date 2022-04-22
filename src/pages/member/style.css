@@ -1,4 +1,4 @@
-@keyframes fadein-dummy {
+@keyframes fadein-member {
     from {
         opacity: 0;
     }
@@ -8,7 +8,7 @@
     }
 }
 
-@keyframes fadeout-dummy {
+@keyframes fadeout-member {
     from {
         opacity: 1;
     }
