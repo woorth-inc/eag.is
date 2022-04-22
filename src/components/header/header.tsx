@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import EagisLogo from '../../assets/images/eagis-logo.png'
 import './style.css'
@@ -57,21 +57,30 @@ const Container = styled.div`
 
 export default ({
     items,
-}: Props) => (
-    <Container>
-        <Logo src={EagisLogo} />
+}: Props) => {
+    const [activeId, setActiveId] = useState(
+        items.findIndex(({ active }) => active)
+    )
 
-        <Wrapper items={items.length}>
-            {items.map(({ delay, label, active, onClick }: Item, key) => (
-                <HeaderItem
-                    key={key}
-                    delay={delay}
-                    active={active}
-                    onClick={onClick}
-                >
-                    {label}
-                </HeaderItem>
-            ))}
-        </Wrapper>
-    </Container>
-)
+    return (
+        <Container>
+            <Logo src={EagisLogo} />
+
+            <Wrapper items={items.length}>
+                {items.map(({ delay, label, onClick }: Item, id) => (
+                    <HeaderItem
+                        key={id}
+                        delay={delay}
+                        active={id === activeId}
+                        onClick={() => {
+                            onClick()
+                            setActiveId(id)
+                        }}
+                    >
+                        {label}
+                    </HeaderItem>
+                ))}
+            </Wrapper>
+        </Container>
+    )
+}
