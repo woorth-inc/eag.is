@@ -16,6 +16,9 @@ const StyledCard = styled(Card)`
     left: calc(50% + ${({ id }) => ['-300px', '0px', '300px'][id]});
     z-index: ${({ id }) => 3 - id};
 
+    -webkit-box-shadow: 0px 0px 15px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px 7px rgba(0, 0, 0, 0.3);
+
     opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
     animation: ${({ animation }) => `${animation}-card`} 800ms ease ${({ id, animation, firstRender }) => (firstRender ? 900 : 30)  + (animation === 'fadein' ? id * 120 : (2 - id) * 120)}ms forwards;
 `
@@ -125,13 +128,22 @@ export default ({
                 ))}
             </CardWrapper>
 
-            <StyledButton
-                action={handleButtonClick}
-                animation={animation}
-                firstRender={firstRender}
-            >
-                Docs
-            </StyledButton>
+            <div style={{ display: 'flex', width: '300px', margin: '0 auto' }}>
+                <StyledButton
+                    action={handleButtonClick}
+                    animation={animation}
+                    firstRender={firstRender}
+                >
+                    Docs
+                </StyledButton>
+                <StyledButton
+                    action={handleButtonClick}
+                    animation={animation}
+                    firstRender={firstRender}
+                >
+                    事前登録
+                </StyledButton>
+            </div>
         </div>
     )
 }

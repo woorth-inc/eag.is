@@ -6,6 +6,8 @@ interface Props {
     icon: string
     twitter: string
     github: string
+    animation: string
+    firstRender: boolean
 }
 
 const MemberContainer = styled.div`
@@ -14,10 +16,11 @@ const MemberContainer = styled.div`
     grid-row-gap: 20px;
     place-items: center;
     width: 250px;
+    pointer-events: ${({ disableClick }) => disableClick ? 'none' : 'all'};
 `
 
 const Icon = styled.div`
-    ${({ src }) => src ? `background-image: url(${src});` : 'background: #eee;'}
+    background: ${({ src }) => src ? `url(${src})` : '#eee'};
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -63,8 +66,12 @@ export default ({
     icon,
     twitter,
     github,
+    animation,
+    firstRender,
 }: Props) => (
-    <MemberContainer>
+    <MemberContainer
+        disableClick={animation === 'fadeout'}
+    >
         <Icon src={icon} />
         <Details>
             <Name>{name}</Name>

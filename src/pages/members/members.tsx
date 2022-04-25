@@ -25,7 +25,7 @@ const MembersContainer = styled.div`
 
     display: grid;
     grid-template-columns: repeat(${({ members }) => members}, 1fr);
-    grid-gap: 60px;
+    grid-gap: 40px;
 
     opacity: ${({ animation }) => animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
     ${({ animation, firstRender }) => firstRender ? '' : `animation: ${animation}-member 800ms ease 50ms forwards;`}
@@ -71,6 +71,8 @@ export default ({
             {members.map((params, id) => (
                 <Member
                     {...params}
+                    animation={animation}
+                    firstRender={firstRender}
                     key={id}
                 />
             ))}
