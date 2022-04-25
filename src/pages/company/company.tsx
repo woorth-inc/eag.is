@@ -6,6 +6,7 @@ import './style.css'
 interface Props {
     animation: string
     firstRender: boolean
+    isMobile: boolean
 }
 
 const CompanyContainer = styled.div`
@@ -82,6 +83,7 @@ const Link = styled.p`
 export default ({
     animation,
     firstRender,
+    isMobile,
 }: Props) => (
     <CompanyContainer
         animation={animation}
@@ -95,7 +97,7 @@ export default ({
 
             <LinkWrapper>
                 <Link onClick={() => open('https://woorth.io/')}>コーポレートサイトへ</Link>
-                <Link onClick={() => open('blank')}>お問い合わせ</Link>
+                <Link onClick={() => open('blank')}>お問い合わせ</Link> {/* TODO: リンクを追加 */}
             </LinkWrapper>
         </LeftWrapper>
         <RightWrapper />

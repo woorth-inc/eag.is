@@ -12,28 +12,45 @@ import './style.css'
 interface Props {
     animation: string
     firstRender: boolean
+    isMobile: boolean
 }
 
 const MembersContainer = styled.div`
     font-size: 22px;
     text-align: center;
 
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+    ${({ isMobile }) => {
+        return isMobile ? `
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+            margin-top: 300px;
+        ` : `
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        `
+    }}
 
     display: grid;
-    grid-template-columns: repeat(${({ members }) => members}, 1fr);
     grid-gap: 40px;
+    ${({ members, isMobile }) => {
+        return isMobile ? `
+            grid-template-rows: repeat(${members}, 1fr);
+        ` : `
+            grid-template-columns: repeat(${members}, 1fr);
+        `
+    }}
 
-    opacity: ${({ animation }) => animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
-    ${({ animation, firstRender }) => firstRender ? '' : `animation: ${animation}-member 800ms ease 50ms forwards;`}
+    opacity: ${({ animation, isMobile }) => isMobile ? 1 : animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
+    ${({ animation, firstRender, isMobile }) => isMobile || firstRender ? '' : `animation: ${animation}-member 800ms ease 50ms forwards;`}
 `
 
 export default ({
     animation,
     firstRender,
+    isMobile,
 }: Props) => {
     const members = [
         {
@@ -66,6 +83,7 @@ export default ({
         <MembersContainer
             animation={animation}
             firstRender={firstRender}
+            isMobile={isMobile}
             members={members.length}
         >
             {members.map((params, id) => (

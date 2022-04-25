@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import ReactDOM from 'react-dom'
+import { useMediaQuery } from 'react-responsive'
 // コンポーネント
 import Header from './components/header/header'
 // ページ
@@ -7,6 +8,7 @@ import Home from './pages/home/home'
 import Members from './pages/members/members'
 import Company from './pages/company/company'
 import Partners from './pages/partners/partners'
+import Pages from './pages/pages/pages'
 // 型定義
 import type { Item } from './components/header/header'
 // その他
@@ -18,11 +20,10 @@ const App = () => {
     const [animationCompany, setAnimationCompany] = useState('')
     const [animationMembers, setAnimationMembers] = useState('')
     const [animationPartners, setAnimationPartners] = useState('')
+    const [animationPages, setANimationPages] = useState('')
     const firstRenderRef = useRef(true)
 
-    const now = () => {
-        return performance.now()
-    }
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1100px)' })
 
     const setAnimationOfPage = (page: string, animation: string) => {
         switch (page) {
@@ -40,6 +41,10 @@ const App = () => {
             }
             case 'partners': {
                 setAnimationPartners(animation)
+                break
+            }
+            case 'pages': {
+                setANimationPages(animation)
                 break
             }
         }
@@ -71,11 +76,24 @@ const App = () => {
 
     return (
         <>
-            <Header items={items} />
-            <Home firstRender={firstRenderRef.current} animation={animationHome} />
-            <Company firstRender={firstRenderRef.current} animation={animationCompany} />
-            <Members firstRender={firstRenderRef.current} animation={animationMembers} />
-            <Partners firstRender={firstRenderRef.current} animation={animationPartners} />
+            <Header
+                items={items}
+                isMobile={isTabletOrMobile}
+            />
+
+            {[
+                [Home, animationHome],
+                [Partners, animationPartners],
+                [Members, animationMembers],
+                [Company, animationCompany],
+                [Pages, animationPages]
+            ].map(([Component, animation]: [any, string]) => (
+                <Component
+                    firstRender={firstRenderRef.current}
+                    isMobile={isTabletOrMobile}
+                    animation={animation}
+                />
+            ))}
         </>
     )
 }
