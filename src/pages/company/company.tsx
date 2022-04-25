@@ -19,7 +19,6 @@ interface Props {
 
 const Container = styled.div`
     pointer-events: ${({ disableClick }) => disableClick ? 'none' : 'all'};
-    font-size: 24px;
     display: block;
 
     ${({ media }) => {
@@ -31,7 +30,7 @@ const Container = styled.div`
             position: absolute;
             transform: translate(-50%, -50%);
             left: 50%;
-            top: 50%;
+            top: calc(50% + 20px);
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -44,14 +43,14 @@ const Container = styled.div`
     ${({ animation, firstRender, media }) => media.isTablet || firstRender ? '' : `animation: ${animation}-company 800ms ease 50ms forwards;`}
 
     & div {
-        width: ${({ media }) => media.isTablet ? 'auto' : '415px'};
+        width: ${({ media }) => media.isTablet ? 'auto' : '500px'};
         padding: 0 30px;
     }
 
     & p {
         font-family: 'Noto Sans JP';
         font-weight: 400;
-        font-size: ${({ media }) => media.isTablet ? 14 : 24}px;
+        font-size: ${({ media }) => media.isTablet ? 14 : 16}px;
     }
 
     & p > span {
@@ -66,7 +65,7 @@ const LeftWrapper = styled.div`
     }
 
     & > p:nth-of-type(1) {
-        font-size: ${({ media }) => media.isTablet ? 24 : 26}px;
+        font-size: ${({ media }) => media.isTablet ? 24 : 28}px;
         font-weight: 700;
         color: #fff;
     }
@@ -82,7 +81,7 @@ const RightWrapper = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    height: ${({ media }) => media.isTablet ? 74 : 120}px;
+    height: ${({ media }) => media.isTablet ? 60 : 110}px;
     margin-bottom: ${({ media }) => media.isTablet ? 20 : 0}px;
 `
 
@@ -93,7 +92,7 @@ const LinkWrapper = styled.div`
 
 const Link = styled.p`
     margin: 0 60px;
-    font-size: 16px !important;
+    font-size: 16px;
     cursor: pointer;
     color: #7070ed;
 

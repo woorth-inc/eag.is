@@ -28,7 +28,7 @@ const Container = styled.div`
         ` : `
             display: grid;
             grid-row-gap: 20px;
-            place-items: ${({ media }) => media.isTablet ? 'end' : 'center'};
+            place-items: ${media.isTablet ? 'end' : 'center'};
         `
     }}
 
