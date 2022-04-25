@@ -1,6 +1,5 @@
 import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/pkg/styled-components.js";import g from"../../assets/images/woorth-inc-logo.png.proxy.js";import f from"../../components/button/button.js";import"./style.css.proxy.js";const u=o.div`
     pointer-events: ${({disableClick:t})=>t?"none":"all"};
-    font-size: 24px;
     display: block;
 
     ${({media:t})=>t.isTablet?`
@@ -11,7 +10,7 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
             position: absolute;
             transform: translate(-50%, -50%);
             left: 50%;
-            top: 50%;
+            top: calc(50% + 20px);
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -23,14 +22,14 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
     ${({animation:t,firstRender:a,media:n})=>n.isTablet||a?"":`animation: ${t}-company 800ms ease 50ms forwards;`}
 
     & div {
-        width: ${({media:t})=>t.isTablet?"auto":"415px"};
+        width: ${({media:t})=>t.isTablet?"auto":"500px"};
         padding: 0 30px;
     }
 
     & p {
         font-family: 'Noto Sans JP';
         font-weight: 400;
-        font-size: ${({media:t})=>t.isTablet?14:24}px;
+        font-size: ${({media:t})=>t.isTablet?14:16}px;
     }
 
     & p > span {
@@ -43,7 +42,7 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
     }
 
     & > p:nth-of-type(1) {
-        font-size: ${({media:t})=>t.isTablet?24:26}px;
+        font-size: ${({media:t})=>t.isTablet?24:28}px;
         font-weight: 700;
         color: #fff;
     }
@@ -57,14 +56,14 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    height: ${({media:t})=>t.isTablet?74:120}px;
+    height: ${({media:t})=>t.isTablet?60:110}px;
     margin-bottom: ${({media:t})=>t.isTablet?20:0}px;
 `,x=o.div`
     margin-top: 40px;
     text-align: right;
 `,i=o.p`
     margin: 0 60px;
-    font-size: 16px !important;
+    font-size: 16px;
     cursor: pointer;
     color: #7070ed;
 
