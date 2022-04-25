@@ -39,7 +39,6 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
 `,r=o.div`
     & > p {
         margin: 0;
-        font-size: 15px;
         color: #c0c0c0;
     }
 
