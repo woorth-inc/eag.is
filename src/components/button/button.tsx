@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 interface Props {
     action: (_: any) => any
-    className: string
+    className?: string
     children: string
 }
 

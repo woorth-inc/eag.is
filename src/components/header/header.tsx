@@ -10,9 +10,15 @@ export interface Item {
     onClick?: any
 }
 
+interface Media {
+    isMobile: boolean
+    isTablet: boolean
+}
+
 interface Props {
     items: Item[]
-    isMobile: boolean
+    media: Media
+    refs: any[]
 }
 
 const Logo = styled.div`
@@ -52,8 +58,8 @@ const HeaderItem = styled.div`
 `
 
 const Container = styled.div`
-    ${({ isMobile }) => {
-        return isMobile ? '' : `
+    ${({ media }) => {
+        return media.isTablet ? '' : `
             display: grid;
             grid-template-rows: repeat(2, 1fr);
         `
@@ -62,25 +68,33 @@ const Container = styled.div`
 
 export default ({
     items,
-    isMobile,
+    media,
+    refs,
 }: Props) => {
     const [activeId, setActiveId] = useState(items.findIndex(({ active }) => active))
     const [cooldown, setCooldown] = useState(performance.now())
 
     return (
-        <Container isMobile={isMobile}>
+        <Container media={media}>
             <Logo src={EagisLogo} />
             {
-                !isMobile && (
+                !media.isTablet && (
                     <Wrapper items={items.length}>
                         {items.map(({ delay, label, onClick }: Item, id) => (
                             <HeaderItem
                                 key={id}
                                 delay={delay}
                                 active={id === activeId}
+                                ref={refs[id]}
                                 onClick={() => {
                                     if (performance.now() - cooldown < 1000) return
-                                    onClick()
+
+                                    if (refs[id].current?.getAttribute('ignore-animation') === 'true') {
+                                        refs[id].current?.setAttribute('ignore-animation', 'false')
+                                    } else {
+                                        onClick()
+                                    }
+
                                     setActiveId(id)
                                     setCooldown(performance.now())
                                 }}
