@@ -1,4 +1,4 @@
-import t,{useState as i}from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/pkg/styled-components.js";import l from"../../assets/images/eagis-logo.png.proxy.js";import"./style.css.proxy.js";const f=o.div`
+import o,{useState as s}from"../../../_snowpack/pkg/react.js";import r from"../../../_snowpack/pkg/styled-components.js";import u from"../../assets/images/eagis-logo.png.proxy.js";import"./style.css.proxy.js";const f=r.div`
     margin: 25px auto 10px;
 
     display: block;
@@ -12,7 +12,7 @@ import t,{useState as i}from"../../../_snowpack/pkg/react.js";import o from"../.
 
     animation: fadein-logo 800ms ease 400ms forwards;
     opacity: 0;
-`,u=o.div`
+`,w=r.div`
     display: grid;
     grid-template-columns: repeat(${({items:e})=>e||5}, 1fr);
     grid-column-gap: 30px;
@@ -20,7 +20,7 @@ import t,{useState as i}from"../../../_snowpack/pkg/react.js";import o from"../.
     margin: 0 auto;
     margin-top: 10px;
     text-align: center;
-`,w=o.div`
+`,x=r.div`
     font-weight: ${e=>e.active?600:200};
     font-size: 18px;
     width: 110px;
@@ -28,9 +28,9 @@ import t,{useState as i}from"../../../_snowpack/pkg/react.js";import o from"../.
     animation: fadein-item 800ms ease ${e=>e.delay*230}ms forwards;
     opacity: 0;
     cursor: pointer;
-`,x=o.div`
-    ${({isMobile:e})=>e?"":`
+`,y=r.div`
+    ${({media:e})=>e.isTablet?"":`
             display: grid;
             grid-template-rows: repeat(2, 1fr);
         `}
-`;export default({items:e,isMobile:n})=>{const[s,p]=i(e.findIndex(({active:r})=>r)),[c,m]=i(performance.now());return t.createElement(x,{isMobile:n},t.createElement(f,{src:l}),!n&&t.createElement(u,{items:e.length},e.map(({delay:r,label:d,onClick:g},a)=>t.createElement(w,{key:a,delay:r,active:a===s,onClick:()=>{performance.now()-c<1e3||(g(),p(a),m(performance.now()))}},d))))};
+`;export default({items:e,media:i,refs:a})=>{const[c,p]=s(e.findIndex(({active:n})=>n)),[m,g]=s(performance.now());return o.createElement(y,{media:i},o.createElement(f,{src:u}),!i.isTablet&&o.createElement(w,{items:e.length},e.map(({delay:n,label:l,onClick:d},t)=>o.createElement(x,{key:t,delay:n,active:t===c,ref:a[t],onClick:()=>{performance.now()-m<1e3||(a[t].current?.getAttribute("ignore-animation")==="true"?a[t].current?.setAttribute("ignore-animation","false"):d(),p(t),g(performance.now()))}},l))))};
