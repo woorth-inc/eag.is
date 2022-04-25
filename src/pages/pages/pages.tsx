@@ -2,6 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import './style.css'
 
+interface Media {
+    isMobile: boolean
+    isTablet: boolean
+}
+
 interface Link {
     label: string
     icon: string
@@ -11,37 +16,49 @@ interface Link {
 interface Props {
     animation: string
     firstRender: boolean
-    isMobile: boolean
+    media: Media
 }
 
 const Container = styled.div`
+    pointer-events: ${({ disableClick }) => disableClick ? 'none' : 'all'};
     text-align: left;
-    position: absolute;
-    left: 50%;
+    display: block;
 
-    ${({ isMobile }) => {
-        return isMobile ? `
-            transform: translateX(-50%);
+    ${({ media }) => {
+        return media.isTablet ? `
+            margin-top: 50px;
         ` : `
+            position: absolute;
+            left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
         `
     }}
 
     /* TODO: モバイル時に表示させる */
-    opacity: ${({ animation, isMobile }) => isMobile ? 0 : animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
-    ${({ animation, firstRender, isMobile }) => isMobile || firstRender ? '' : `animation: ${animation}-pages 800ms ease 50ms forwards;`}
+    opacity: ${({ animation, media }) => media.isTablet ? 1 : animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
+    ${({ animation, firstRender, media }) => media.isTablet || firstRender ? '' : `animation: ${animation}-pages 800ms ease 50ms forwards;`}
 `
 
 const LinksWrapper = styled.div`
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    ${({ links, media }) => {
+        return media.isTablet ? `
+            grid-template-columns: repeat(${links}, 1fr);
+            place-items: center;
+            width: 200px;
+            margin: 0 auto;
+        ` : `
+            grid-template-rows: repeat(${links}, 1fr);
+        `
+    }}
 `
 
 const Link = styled.div`
     font-size: 25px;
     color: white;
     margin: 7px 0;
+    cursor: pointer;
 
     &::before {
         content: '';
@@ -63,7 +80,7 @@ const Link = styled.div`
 export default ({
     animation,
     firstRender,
-    isMobile,
+    media,
 }: Props) => {
     const links: Link[] = [
         {
@@ -74,12 +91,12 @@ export default ({
         {
             label: 'Medium',
             icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512' fill='%23fff'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z'/%3E%3C/svg%3E`,
-            href: 'blank', // TODO: リンクを追加する
+            href: 'https://medium.com/@eagis',
         },
         {
             label: 'hello@eag.is',
             icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23fff'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z'/%3E%3C/svg%3E`,
-            href: 'blank', // WHAT
+            href: 'mailto:hello@eag.is',
         }
     ]
 
@@ -87,9 +104,13 @@ export default ({
         <Container
             animation={animation}
             firstRender={firstRender}
-            isMobile={isMobile}
+            disableClick={animation !== 'fadein' && !media.isTablet}
+            media={media}
         >
-            <LinksWrapper>
+            <LinksWrapper
+                links={links.length}
+                media={media}
+            >
                 {links.map(({ label, icon, href }: Link, id: number) => (
                     <Link
                         icon={icon}
@@ -97,7 +118,7 @@ export default ({
                         onClick={() => open(href)}
                         key={id}
                     >
-                        {label}
+                        {media.isTablet ? '' : label}
                     </Link>
                 ))}
             </LinksWrapper>
