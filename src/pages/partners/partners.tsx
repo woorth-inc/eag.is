@@ -7,72 +7,88 @@ import VeryLongAnimals from '../../assets/images/partners-logo/verylonganimals.p
 
 import './style.css'
 
+interface Media {
+    isMobile: boolean
+    isTablet: boolean
+}
+
 interface Props {
     animation: string
     firstRender: boolean
-    isMobile: boolean
+    media: Media
 }
 
-const PartnersaContainer = styled.div`
+const Container = styled.div`
     font-size: 24px;
     text-align: center;
+    display: block;
 
-    position: absolute;
-    left: 50%;
-
-    ${({ isMobile }) => {
-        return isMobile ? `
-            transform: translateX(-50%);
+    ${({ media }) => {
+        return media.isTablet ? `
+            margin-top: ${media.isMobile ? '10px' : '50px'};
         ` : `
+            position: absolute;
+            left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
         `
     }}
 
-    opacity: ${({ animation, isMobile }) => isMobile ? 1 : animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
-    ${({ animation, firstRender, isMobile }) => isMobile || firstRender ? '' : `animation: ${animation}-company 800ms ease 50ms forwards;`}
+    opacity: ${({ animation, media }) => media.isTablet ? 1 : animation === 'fadein' ? 0 : animation === 'fadeout' ? 1 : 0};
+    ${({ animation, firstRender, media }) => media.isTablet || firstRender ? '' : `animation: ${animation}-company 800ms ease 50ms forwards;`}
 `
 
 const BannerWrapper = styled.div`
-    grid-gap: 20px;
+    ${({ media }) => {
+        return media.isTablet ? `
+            display: grid;
+            justify-content: center;
+            grid-gap: 5px;
+
+            align-items: center;
+            margin: 0 auto;
+        ` : ''
+    }}
 `
 
 const Banner = styled.img`
-    height: 40px;
-    margin: 10px 20px;
+    height: ${({ media }) => media.isMobile ? '22px' : media.isTablet ? '30px' : '40px'};
+    margin: 10px ${({ media }) => media.isTablet ? 'auto' : '20px'};
 `
 
 export default ({
     animation,
     firstRender,
-    isMobile,
+    media,
 }: Props) => (
-    <PartnersaContainer
+    <Container
         animation={animation}
         firstRender={firstRender}
-        isMobile={isMobile}
+        media={media}
     >
         {
-            isMobile && (
+            media.isTablet && (
                 <div
                     style={{
                         marginBottom: '20px',
                         fontFamily: '"Noto Sans JP"',
-                        fontSize: '16px',
+                        fontWeight: '500',
+                        fontSize: media.isMobile ? '18px' : '23px',
                     }}
                 >
-                    パートナー
+                    🤝パートナー
                 </div>
             )
         }
 
-        <BannerWrapper>
+        <BannerWrapper media={media}>
             {[Microsoft, MicrosoftAzure, VeryLongAnimals].map((src, id) => (
                 <Banner
+                    media={media}
                     src={src}
                     key={id}
                 />
             ))}
         </BannerWrapper>
-    </PartnersaContainer>
+    </Container>
 )
