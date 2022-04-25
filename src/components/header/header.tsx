@@ -12,6 +12,7 @@ export interface Item {
 
 interface Props {
     items: Item[]
+    isMobile: boolean
 }
 
 const Logo = styled.div`
@@ -51,37 +52,45 @@ const HeaderItem = styled.div`
 `
 
 const Container = styled.div`
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    ${({ isMobile }) => {
+        return isMobile ? '' : `
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+        `
+    }}
 `
 
 export default ({
     items,
+    isMobile,
 }: Props) => {
     const [activeId, setActiveId] = useState(items.findIndex(({ active }) => active))
     const [cooldown, setCooldown] = useState(performance.now())
 
     return (
-        <Container>
+        <Container isMobile={isMobile}>
             <Logo src={EagisLogo} />
-
-            <Wrapper items={items.length}>
-                {items.map(({ delay, label, onClick }: Item, id) => (
-                    <HeaderItem
-                        key={id}
-                        delay={delay}
-                        active={id === activeId}
-                        onClick={() => {
-                            if (performance.now() - cooldown < 1000) return
-                            onClick()
-                            setActiveId(id)
-                            setCooldown(performance.now())
-                        }}
-                    >
-                        {label}
-                    </HeaderItem>
-                ))}
-            </Wrapper>
+            {
+                !isMobile && (
+                    <Wrapper items={items.length}>
+                        {items.map(({ delay, label, onClick }: Item, id) => (
+                            <HeaderItem
+                                key={id}
+                                delay={delay}
+                                active={id === activeId}
+                                onClick={() => {
+                                    if (performance.now() - cooldown < 1000) return
+                                    onClick()
+                                    setActiveId(id)
+                                    setCooldown(performance.now())
+                                }}
+                            >
+                                {label}
+                            </HeaderItem>
+                        ))}
+                    </Wrapper>
+                )
+            }
         </Container>
     )
 }
