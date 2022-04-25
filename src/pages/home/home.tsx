@@ -238,7 +238,7 @@ export default ({
                         media={media}
                     >
                         <p>NFT真贋鑑定や危険なサイトの判定を行う</p>
-                        <p>Web3時代の無料セキュリティツール</p>
+                        <p>Web3セキュリティツール</p>
                     </Description>
                 )
             }

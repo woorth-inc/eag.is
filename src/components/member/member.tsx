@@ -17,13 +17,20 @@ interface Props {
 }
 
 const Container = styled.div`
+    pointer-events: ${({ disableClick }) => disableClick ? 'none' : 'all'};
     border-radius: 6px;
     margin: 5px 0;
 
-    display: grid;
-    grid-row-gap: 20px;
-    place-items: ${({ media }) => media.isTablet ? 'end' : 'center'};
-    pointer-events: ${({ disableClick }) => disableClick ? 'none' : 'all'};
+    ${({ media }) => {
+        return media.isMobile ? `
+            display: flex;
+            margin: 0 auto;
+        ` : `
+            display: grid;
+            grid-row-gap: 20px;
+            place-items: ${({ media }) => media.isTablet ? 'end' : 'center'};
+        `
+    }}
 
     ${({ media }) => {
         return media.isTablet ? `
@@ -49,7 +56,7 @@ const Icon = styled.div`
 `
 
 const Details = styled.div`
-
+    ${({ media }) => media.isMobile ? 'width: 120px;' : ''}
 `
 
 const Name = styled.div`
@@ -94,7 +101,7 @@ export default ({
     >
         <Icon
             src={icon}
-            size={media.isMobile ? '50px' : media.isTablet ? '80px' : '140px'}
+            size={media.isMobile ? '60px' : media.isTablet ? '90px' : '140px'}
         />
         <Details media={media}>
             <Name media={media}>{name}</Name>

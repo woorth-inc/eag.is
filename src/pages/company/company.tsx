@@ -62,7 +62,6 @@ const Container = styled.div`
 const LeftWrapper = styled.div`
     & > p {
         margin: 0;
-        font-size: 15px;
         color: #c0c0c0;
     }
 
