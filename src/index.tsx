@@ -15,15 +15,14 @@ import type { Item } from './components/header/header'
 import './style.css'
 
 const App = () => {
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1100px)' })
     const [currentPage, setCurrentPage] = useState('home')
     const [animationHome, setAnimationHome] = useState('fadein')
     const [animationCompany, setAnimationCompany] = useState('')
     const [animationMembers, setAnimationMembers] = useState('')
     const [animationPartners, setAnimationPartners] = useState('')
-    const [animationPages, setANimationPages] = useState('')
+    const [animationPages, setAnimationPages] = useState('')
     const firstRenderRef = useRef(true)
-
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1100px)' })
 
     const setAnimationOfPage = (page: string, animation: string) => {
         switch (page) {
@@ -44,7 +43,7 @@ const App = () => {
                 break
             }
             case 'pages': {
-                setANimationPages(animation)
+                setAnimationPages(animation)
                 break
             }
         }
@@ -87,11 +86,12 @@ const App = () => {
                 [Members, animationMembers],
                 [Company, animationCompany],
                 [Pages, animationPages]
-            ].map(([Component, animation]: [any, string]) => (
+            ].map(([Component, animation]: [any, string], id: number) => (
                 <Component
                     firstRender={firstRenderRef.current}
                     isMobile={isTabletOrMobile}
                     animation={animation}
+                    key={id}
                 />
             ))}
         </>

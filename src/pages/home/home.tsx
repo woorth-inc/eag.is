@@ -35,7 +35,7 @@ const StyledCard = styled(Card)`
     box-shadow: 0px 0px 15px 7px rgba(0, 0, 0, 0.3);
 
     opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
-    animation: ${({ animation }) => `${animation}-card`} 800ms ease ${({ id, animation, firstRender }) => (firstRender ? 900 : 30)  + (animation === 'fadein' ? id * 120 : (2 - id) * 120)}ms forwards;
+    animation: ${({ animation }) => `${animation}-card`} 800ms ease ${({ id, firstRender }) => (firstRender ? 900 : 50) + id * 120}ms forwards;
 `
 
 const CardWrapper = styled.div`
@@ -46,7 +46,7 @@ const CardWrapper = styled.div`
 
 const Title = styled.p`
     opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
-    animation: ${({ animation }) => `${animation}-title`} 800ms ease ${({ id, animation, firstRender }) => (firstRender ? 900 : 30) + (animation === 'fadein' ? id * 120 : (2 - id) * 120)}ms forwards;
+    animation: ${({ animation }) => `${animation}-title`} 800ms ease ${({ id, firstRender }) => (firstRender ? 900 : 50) + id * 120}ms forwards;
 `
 
 const TitleWrapper = styled.div`
