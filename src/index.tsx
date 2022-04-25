@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import { useMediaQuery } from 'react-responsive'
 // コンポーネント
@@ -15,13 +15,23 @@ import type { Item } from './components/header/header'
 import './style.css'
 
 const App = () => {
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1100px)' })
     const [currentPage, setCurrentPage] = useState('home')
     const [animationHome, setAnimationHome] = useState('fadein')
     const [animationCompany, setAnimationCompany] = useState('')
     const [animationMembers, setAnimationMembers] = useState('')
     const [animationPartners, setAnimationPartners] = useState('')
     const [animationPages, setAnimationPages] = useState('')
+
+    const refs = Array(5).fill(null).map(_ => useRef<HTMLDivElement | null>(null))
+
+    // レスポンシブ用に画面サイズを判定する
+    // const [isTablet, setIsTablet] = useState(window.innerWidth <= 1100)
+    // const [isMobile, setIsMobile] = useState(window.innerWidth <= 650)
+    const isTablet = useMediaQuery({ query: '(max-width: 1100px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 650px)' })
+    const [goHomeFlag, setGoHomeFlag] = useState(true)
+
+    // １回目のレンダリングかどうかを判定する
     const firstRenderRef = useRef(true)
 
     const setAnimationOfPage = (page: string, animation: string) => {
@@ -73,11 +83,33 @@ const App = () => {
         })
     })
 
+    const handleWindowResize = () => {
+        // home以外のページを開いた状態でリサイズした際はhomeに強制移動
+        if (isTablet) {
+            if (goHomeFlag && currentPage !== 'home') {
+                handlePageTransition('home')
+            }
+        } else {
+            if (!goHomeFlag) {
+                refs[2].current?.setAttribute('ignore-animation', 'true')
+                refs[2].current?.click()
+            }
+        }
+
+        setGoHomeFlag(!isTablet)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowResize)
+        return () => window.removeEventListener('resize', handleWindowResize)
+    })
+
     return (
         <>
             <Header
+                refs={refs}
                 items={items}
-                isMobile={isTabletOrMobile}
+                media={{ isTablet, isMobile }}
             />
 
             {[
@@ -85,11 +117,11 @@ const App = () => {
                 [Partners, animationPartners],
                 [Members, animationMembers],
                 [Company, animationCompany],
-                [Pages, animationPages]
+                [Pages, animationPages],
             ].map(([Component, animation]: [any, string], id: number) => (
                 <Component
                     firstRender={firstRenderRef.current}
-                    isMobile={isTabletOrMobile}
+                    media={{ isTablet, isMobile }}
                     animation={animation}
                     key={id}
                 />
