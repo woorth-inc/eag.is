@@ -4,7 +4,7 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
 
     ${({media:t})=>t.isTablet?`
             margin: 100px auto;
-            width: ${t.isMobile?400:500}px;
+            width: ${t.isMobile?325:540}px;
             text-align: center;
         `:`
             position: absolute;
@@ -23,13 +23,13 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
 
     & div {
         width: ${({media:t})=>t.isTablet?"auto":"500px"};
-        padding: 0 30px;
+        padding: 0 ${({media:t})=>t.isMobile?"0":"30px"};
     }
 
     & p {
         font-family: 'Noto Sans JP';
         font-weight: 400;
-        font-size: ${({media:t})=>t.isTablet?14:16}px;
+        font-size: ${({media:t})=>t.isTablet?12:16}px;
     }
 
     & p > span {
@@ -42,7 +42,7 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
     }
 
     & > p:nth-of-type(1) {
-        font-size: ${({media:t})=>t.isTablet?24:28}px;
+        font-size: ${({media:t})=>t.isTablet?22:28}px;
         font-weight: 700;
         color: #fff;
     }
@@ -83,10 +83,10 @@ import e from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
     }
-`,p=o(f)`
+`,s=o(f)`
     font-size: 12px;
     line-height: 30px;
     width: 120px !important;
     height: 30px;
     margin: 20px auto;
-`,s="https://woorth.io/",c="https://notionforms.io/forms/eagis-contact-form",m=({withoutLink:t})=>e.createElement(e.Fragment,null,e.createElement("p",null,e.createElement("span",null,'"'),"無限の価値を見つけて伸ばす",e.createElement("span",null,'"')),e.createElement("p",null,"を目標に",e.createElement("span",null,"Web3"),"領域の事業を進めるスタートアップ"),e.createElement("p",null,"ブロックチェーン開発、暗号資産ウォレット開発、",e.createElement("span",null,"NFT"),"発行支援等の",e.createElement("span",null,"Web3"),"領域を包括したサービスの提供を行っています。また今後は",e.createElement("span",null,"Web3"),"学習サービス等も提供予定です。"),e.createElement("p",null,"急成長するこの領域で正常に発展できる基盤を作るべく様々な事業に取り組んでいます。",e.createElement("span",null,"NFT"),"やその他",e.createElement("span",null,"Web3"),"事業でお困りのことやご相談があれば気軽にお問い合わせください。"),!t&&e.createElement(x,null,e.createElement(i,{onClick:()=>open(s)},"コーポレートサイトへ"),e.createElement(i,{onClick:()=>open(c)},"お問い合わせ")));export default({animation:t,firstRender:a,media:n})=>e.createElement(u,{animation:t,firstRender:a,disableClick:t!=="fadein"&&!n.isTablet,media:n},n.isTablet?e.createElement(e.Fragment,null,e.createElement("div",{style:{marginBottom:"20px",fontFamily:'"Noto Sans JP"',fontWeight:"500",fontSize:n.isMobile?"18px":"23px"}},"🏢会社概要"),e.createElement(l,{media:n}),e.createElement(r,{media:n},e.createElement(m,{withoutLink:!0}),e.createElement("div",{style:{height:"25px"}}),e.createElement(p,{action:()=>open(s)},"コーポレートサイト"),e.createElement(p,{action:()=>open(c)},"お問い合わせ"))):e.createElement(e.Fragment,null,e.createElement(r,{media:n},e.createElement(m,{withoutLink:!1})),e.createElement(l,{media:n})));
+`,p="https://woorth.io/",c="https://notionforms.io/forms/eagis-contact-form",m=({withoutLink:t})=>e.createElement(e.Fragment,null,e.createElement("p",null,e.createElement("span",null,'"'),"無限の価値を見つけて伸ばす",e.createElement("span",null,'"')),e.createElement("p",null,"を目標に",e.createElement("span",null,"Web3"),"領域の事業を進めるスタートアップ"),e.createElement("p",null,"ブロックチェーン開発、暗号資産ウォレット開発、",e.createElement("span",null,"NFT"),"発行支援等の",e.createElement("span",null,"Web3"),"領域を包括したサービスの提供を行っています。また今後は",e.createElement("span",null,"Web3"),"学習サービス等も提供予定です。"),e.createElement("p",null,"急成長するこの領域で正常に発展できる基盤を作るべく様々な事業に取り組んでいます。",e.createElement("span",null,"NFT"),"やその他",e.createElement("span",null,"Web3"),"事業でお困りのことやご相談があれば気軽にお問い合わせください。"),!t&&e.createElement(x,null,e.createElement(i,{onClick:()=>open(p)},"コーポレートサイトへ"),e.createElement(i,{onClick:()=>open(c)},"お問い合わせ")));export default({animation:t,firstRender:a,media:n})=>e.createElement(u,{animation:t,firstRender:a,disableClick:t!=="fadein"&&!n.isTablet,media:n},n.isTablet?e.createElement(e.Fragment,null,e.createElement("div",{style:{marginBottom:"20px",fontFamily:'"Noto Sans JP"',fontWeight:"500",fontSize:n.isMobile?"18px":"23px"}},"🏢会社概要"),e.createElement(l,{media:n}),e.createElement(r,{media:n},e.createElement(m,{withoutLink:!0}),e.createElement("div",{style:{height:"25px"}}),e.createElement(s,{action:()=>open(p)},"コーポレートサイト"),e.createElement(s,{action:()=>open(c)},"お問い合わせ"))):e.createElement(e.Fragment,null,e.createElement(r,{media:n},e.createElement(m,{withoutLink:!1})),e.createElement(l,{media:n})));
