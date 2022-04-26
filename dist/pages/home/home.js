@@ -90,7 +90,7 @@ import o from"../../../_snowpack/pkg/react.js";import n from"../../../_snowpack/
     ${({style:t})=>t||""}
 `,T=n.div`
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     text-align: center;
     margin-top: ${({media:t})=>t.isTablet?"20px":"0"};
 
