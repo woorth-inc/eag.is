@@ -139,13 +139,17 @@ const StyledButton = styled(Button)`
     margin: ${({ media }) => media.isMobile ? '20px' : '40px'} auto;
     opacity: ${({ animation }) => animation === 'fadein' ? 0 : 1};
     animation: ${({ animation }) => `${animation}-button`} 800ms ease ${({ firstRender }) => firstRender ? 600 : 50}ms forwards;
+    ${({ style }) => style || ''}
 `
 
 const Description = styled.div`
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     text-align: center;
     margin-top: ${({ media }) => media.isTablet ? '20px' : '0'};
+
+    font-family: "Noto Sans JP";
+    font-weight: 700;
 
     & > p {
         margin: 0;
@@ -268,8 +272,12 @@ export default ({
                     animation={animation}
                     firstRender={firstRender}
                     media={media}
+                    style={`
+                        font-family: "Noto Sans JP";
+                        font-weight: 500;
+                    `}
                 >
-                    Pre-Register
+                    事前登録
                 </StyledButton>
             </div>
         </Container>

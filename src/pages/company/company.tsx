@@ -24,7 +24,7 @@ const Container = styled.div`
     ${({ media }) => {
         return media.isTablet ? `
             margin: 100px auto;
-            width: ${media.isMobile ? 400 : 500}px;
+            width: ${media.isMobile ? 325 : 540}px;
             text-align: center;
         ` : `
             position: absolute;
@@ -44,13 +44,13 @@ const Container = styled.div`
 
     & div {
         width: ${({ media }) => media.isTablet ? 'auto' : '500px'};
-        padding: 0 30px;
+        padding: 0 ${({ media }) => media.isMobile ? '0' : '30px'};
     }
 
     & p {
         font-family: 'Noto Sans JP';
         font-weight: 400;
-        font-size: ${({ media }) => media.isTablet ? 14 : 16}px;
+        font-size: ${({ media }) => media.isTablet ? 12 : 16}px;
     }
 
     & p > span {
@@ -65,7 +65,7 @@ const LeftWrapper = styled.div`
     }
 
     & > p:nth-of-type(1) {
-        font-size: ${({ media }) => media.isTablet ? 24 : 28}px;
+        font-size: ${({ media }) => media.isTablet ? 22 : 28}px;
         font-weight: 700;
         color: #fff;
     }
