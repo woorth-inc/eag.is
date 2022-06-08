@@ -1,4 +1,4 @@
-import o from"../../../_snowpack/pkg/react.js";import n from"../../../_snowpack/pkg/styled-components.js";import c from"../../components/card/card.js";import m from"../../components/button/button.js";import x from"../../assets/images/popup/safe.png.proxy.js";import g from"../../assets/images/popup/unsafe.png.proxy.js";import f from"../../assets/images/popup/unknown.png.proxy.js";import d from"../../assets/images/popup/all_in_one.png.proxy.js";import"./style.css.proxy.js";const b=n.div`
+import o from"../../../_snowpack/pkg/react.js";import n from"../../../_snowpack/pkg/styled-components.js";import c from"../../components/card/card.js";import m from"../../components/button/button.js";import x from"../../assets/images/popup/safe.png.proxy.js";import g from"../../assets/images/popup/unsafe.png.proxy.js";import d from"../../assets/images/popup/unknown.png.proxy.js";import b from"../../assets/images/popup/all_in_one.png.proxy.js";import"./style.css.proxy.js";const f=n.div`
     pointer-events: ${({disableClick:t})=>t?"none":"all"};
     display: block;
 
@@ -21,7 +21,7 @@ import o from"../../../_snowpack/pkg/react.js";import n from"../../../_snowpack/
 
     opacity: ${({animation:t})=>t==="fadein"?0:1};
     animation: ${({animation:t})=>`${t}-card`} 800ms ease ${({id:t,firstRender:e})=>(e?900:50)+t*120}ms forwards;
-`,y=n.img`
+`,h=n.img`
     position: absolute;
     width: 250px;
 
@@ -34,7 +34,7 @@ import o from"../../../_snowpack/pkg/react.js";import n from"../../../_snowpack/
 
     opacity: ${({animation:t})=>t==="fadein"?0:1};
     animation: ${({animation:t})=>`${t}-card`} 800ms ease ${({id:t,firstRender:e})=>(e?900:50)+t*120}ms forwards;
-`,h=n.img`
+`,y=n.img`
     position: relative;
     transform: translateX(-50%);
     left: 50%;
@@ -110,7 +110,7 @@ import o from"../../../_snowpack/pkg/react.js";import n from"../../../_snowpack/
         opacity: ${({animation:t})=>t==="fadein"?0:1};
         animation: ${({animation:t})=>`${t}-description-line2`} 800ms ease ${({firstRender:t})=>t?600:50}ms forwards;
     }
-`;export default({animation:t,firstRender:e,media:a})=>{const r=()=>{open("https://docs.eag.is/")},l=()=>{open("https://notionforms.io/forms/eagis-pre-register-form")};return o.createElement(b,{media:a,disableClick:t!=="fadein"},o.createElement(k,{media:a},["Easy to get","Aegis with","Eagis"].map((s,p)=>o.createElement(w,{animation:t,firstRender:e,id:p,key:p},s))),o.createElement(u,{media:a},a.isMobile?o.createElement(h,{src:d,alt:"popup example"}):a.isTablet?[x,g,f].map((s,p)=>o.createElement(y,{animation:t,firstRender:e,src:s,id:p,key:p})):["safe","unsafe","unknown"].map((s,p)=>o.createElement($,{type:"NFT",name:"Collection Name",icon:"https://lh3.googleusercontent.com/fIn8q46M8M9RnmMOz3Kf1sAKlJRUw3nFAt6xX25Bxtw62BAhrN0CyVTKZz8BQ3O4-C6sLaD2vlTU_sYHL7737-YaK2uKZwjvuikQhg=s0",state:s,detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",animation:t,firstRender:e,id:p,key:p}))),a.isTablet&&o.createElement(T,{animation:t,firstRender:e,media:a},o.createElement("p",null,"NFT真贋鑑定や危険なサイトの判定を行う"),o.createElement("p",null,"Web3セキュリティツール")),o.createElement("div",{style:a.isMobile?{marginTop:"50px",marginBottom:"20px"}:{display:"flex",width:"300px",margin:"0 auto"}},o.createElement(i,{action:r,animation:t,firstRender:e,media:a},"Docs"),o.createElement(i,{action:l,animation:t,firstRender:e,media:a,style:`
+`;export default({animation:t,firstRender:e,media:a})=>{const r=()=>{open("https://docs.eag.is/")},l=()=>{open("https://chrome.google.com/webstore/detail/eagis-web3-security-tool/ichdnpogfildckjjhdgkanoonbapoaml?hl=ja")};return o.createElement(f,{media:a,disableClick:t!=="fadein"},o.createElement(k,{media:a},["Easy to get","Aegis with","Eagis"].map((s,p)=>o.createElement(w,{animation:t,firstRender:e,id:p,key:p},s))),o.createElement(u,{media:a},a.isMobile?o.createElement(y,{src:b,alt:"popup example"}):a.isTablet?[x,g,d].map((s,p)=>o.createElement(h,{animation:t,firstRender:e,src:s,id:p,key:p})):["safe","unsafe","unknown"].map((s,p)=>o.createElement($,{type:"NFT",name:"Collection Name",icon:"https://lh3.googleusercontent.com/fIn8q46M8M9RnmMOz3Kf1sAKlJRUw3nFAt6xX25Bxtw62BAhrN0CyVTKZz8BQ3O4-C6sLaD2vlTU_sYHL7737-YaK2uKZwjvuikQhg=s0",state:s,detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",animation:t,firstRender:e,id:p,key:p}))),a.isTablet&&o.createElement(T,{animation:t,firstRender:e,media:a},o.createElement("p",null,"NFT真贋鑑定や危険なサイトの判定を行う"),o.createElement("p",null,"Web3セキュリティツール")),o.createElement("div",{style:a.isMobile?{marginTop:"50px",marginBottom:"20px"}:{display:"flex",width:"350px",margin:"0 auto"}},o.createElement(i,{action:r,animation:t,firstRender:e,media:a},"Docs"),o.createElement(i,{action:l,animation:t,firstRender:e,media:a,style:`
                         font-family: "Noto Sans JP";
                         font-weight: 500;
-                    `},"事前登録")))};
+                    `},"インストール")))};

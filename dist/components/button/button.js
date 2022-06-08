@@ -11,7 +11,7 @@ import r from"../../../_snowpack/pkg/react.js";import p from"../../../_snowpack/
     padding: 10px;
 
     display: block;
-    width: 100px;
+    width: 120px;
     cursor: pointer;
     transition: 600ms;
 
