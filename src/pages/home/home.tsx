@@ -175,8 +175,8 @@ export default ({
         open('https://docs.eag.is/')
     }
 
-    const handlePreRegisterClick = () => {
-        open('https://notionforms.io/forms/eagis-pre-register-form')
+    const handleInstallClick = () => {
+        open('https://chrome.google.com/webstore/detail/eagis-web3-security-tool/ichdnpogfildckjjhdgkanoonbapoaml?hl=ja')
     }
 
     return (
@@ -268,7 +268,7 @@ export default ({
                     Docs
                 </StyledButton>
                 <StyledButton
-                    action={handlePreRegisterClick}
+                    action={handleInstallClick}
                     animation={animation}
                     firstRender={firstRender}
                     media={media}
@@ -277,7 +277,7 @@ export default ({
                         font-weight: 500;
                     `}
                 >
-                    事前登録
+                    インストール
                 </StyledButton>
             </div>
         </Container>

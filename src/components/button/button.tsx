@@ -20,7 +20,7 @@ const ButtonWrapper = styled.div`
     padding: 10px;
 
     display: block;
-    width: 100px;
+    width: 120px;
     cursor: pointer;
     transition: 600ms;
 
