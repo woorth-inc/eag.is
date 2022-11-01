@@ -25,4 +25,4 @@ import a from"../../../_snowpack/pkg/react.js";import o from"../../../_snowpack/
 `,g=o.img.attrs(t=>({media:t.media||i}))`
 	height: ${({media:t})=>t.isMobile?"22px":t.isTablet?"30px":"40px"};
 	margin: 10px ${({media:t})=>t.isTablet?"auto":"20px"};
-`;export default({animation:t,firstRender:s,media:e})=>a.createElement(c,{animation:t,firstRender:s,media:e},e.isTablet&&a.createElement("div",{style:{marginBottom:"20px",fontFamily:'"Noto Sans JP"',fontWeight:"500",fontSize:e.isMobile?"18px":"23px"}},"🤝パートナー"),a.createElement(f,{media:e},[p,l,m].map((r,n)=>a.createElement(g,{media:e,src:`/build/${r}`,key:n}))));
+`;export default({animation:t,firstRender:s,media:e})=>a.createElement(c,{animation:t,firstRender:s,media:e},e.isTablet&&a.createElement("div",{style:{marginBottom:"20px",fontFamily:'"Noto Sans JP"',fontWeight:"500",fontSize:e.isMobile?"18px":"23px"}},"🤝パートナー"),a.createElement(f,{media:e},[p,l,m].map((r,n)=>a.createElement(g,{media:e,src:r,key:n}))));
