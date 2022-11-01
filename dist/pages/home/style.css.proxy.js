@@ -1,97 +1,97 @@
-if(typeof document!="undefined"){const n=`@keyframes fadein-title {\r
-    from {\r
-        opacity: 0;\r
-        transform: translateY(-70px);\r
-    }\r
-    to {\r
-        opacity: 1;\r
-        transform: translateY(0);\r
-        pointer-events: all;\r
-    }\r
-}\r
-\r
-@keyframes fadein-card {\r
-    from {\r
-        opacity: 0;\r
-        margin-left: 160px;\r
-    }\r
-    to {\r
-        opacity: 1;\r
-        margin-left: 0;\r
-        pointer-events: all;\r
-    }\r
-}\r
-\r
-@keyframes fadein-button {\r
-    from {\r
-        opacity: 0;\r
-        transform: translateY(70px);\r
-    }\r
-    to {\r
-        opacity: 1;\r
-        transform: translateY(0);\r
-        pointer-events: all;\r
-    }\r
-}\r
-\r
-@keyframes fadein-description-line1 {\r
-    from {\r
-        opacity: 0;\r
-        transform: translateX(70px);\r
-    }\r
-    to {\r
-        opacity: 1;\r
-        transform: translateX(0);\r
-        pointer-events: all;\r
-    }\r
-}\r
-\r
-@keyframes fadein-description-line2 {\r
-    from {\r
-        opacity: 0;\r
-        transform: translateX(-70px);\r
-    }\r
-    to {\r
-        opacity: 1;\r
-        transform: translateX(0);\r
-        pointer-events: all;\r
-    }\r
-}\r
-\r
-/* reverse */\r
-\r
-@keyframes fadeout-title {\r
-    from {\r
-        opacity: 1;\r
-        transform: translateY(0);\r
-    }\r
-    to {\r
-        opacity: 0;\r
-        transform: translateY(-70px);\r
-        pointer-events: none;\r
-    }\r
-}\r
-\r
-@keyframes fadeout-card {\r
-    from {\r
-        opacity: 1;\r
-        margin-left: 0;\r
-    }\r
-    to {\r
-        opacity: 0;\r
-        margin-left: 160px;\r
-        pointer-events: none;\r
-    }\r
-}\r
-\r
-@keyframes fadeout-button {\r
-    from {\r
-        opacity: 1;\r
-        transform: translateY(0);\r
-        pointer-events: all;\r
-    }\r
-    to {\r
-        opacity: 0;\r
-        transform: translateY(70px);\r
-    }\r
-}`,r=document.createElement("style"),t=document.createTextNode(n);r.type="text/css",r.appendChild(t),document.head.appendChild(r)}
+if(typeof document!="undefined"){const t=`@keyframes fadein-title {
+    from {
+        opacity: 0;
+        transform: translateY(-70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+}
+
+@keyframes fadein-card {
+    from {
+        opacity: 0;
+        margin-left: 160px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 0;
+        pointer-events: all;
+    }
+}
+
+@keyframes fadein-button {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+}
+
+@keyframes fadein-description-line1 {
+    from {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+    }
+}
+
+@keyframes fadein-description-line2 {
+    from {
+        opacity: 0;
+        transform: translateX(-70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+    }
+}
+
+/* reverse */
+
+@keyframes fadeout-title {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-70px);
+        pointer-events: none;
+    }
+}
+
+@keyframes fadeout-card {
+    from {
+        opacity: 1;
+        margin-left: 0;
+    }
+    to {
+        opacity: 0;
+        margin-left: 160px;
+        pointer-events: none;
+    }
+}
+
+@keyframes fadeout-button {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+}`,n=document.createElement("style"),e=document.createTextNode(t);n.type="text/css",n.appendChild(e),document.head.appendChild(n)}

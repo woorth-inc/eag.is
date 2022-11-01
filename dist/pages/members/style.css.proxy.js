@@ -1,19 +1,19 @@
-if(typeof document!="undefined"){const n=`@keyframes fadein-member {\r
-    from {\r
-        opacity: 0;\r
-    }\r
-    to {\r
-        opacity: 1;\r
-        pointer-events: all;\r
-    }\r
-}\r
-\r
-@keyframes fadeout-member {\r
-    from {\r
-        opacity: 1;\r
-    }\r
-    to {\r
-        opacity: 0;\r
-        pointer-events: none;\r
-    }\r
-}`,e=document.createElement("style"),r=document.createTextNode(n);e.type="text/css",e.appendChild(r),document.head.appendChild(e)}
+if(typeof document!="undefined"){const n=`@keyframes fadein-member {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@keyframes fadeout-member {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}`,e=document.createElement("style"),t=document.createTextNode(n);e.type="text/css",e.appendChild(t),document.head.appendChild(e)}
